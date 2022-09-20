@@ -1,0 +1,77 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link href="musicPlay.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="ControlPanel">
+        <select id="song"  >
+        
+        </select>
+
+        <hr class="hr-color">
+        
+            <span onclick="Play()" id="btnPlay" title="播放 / 暫停">4</span>
+            <span onclick="Stop()" title="停止"><</span>
+            <span onclick="changeTime(-5)" title="倒轉">7</span>
+            <span onclick="changeTime(5)"title="快轉">8</span>
+
+            <span onclick="changeSong(-1)" title="上一首">9</span>
+            <span onclick="changeSong(1)" title="下一首">:</span>
+            <span onclick="setMuted()" id="mutePlay" title="靜音" >U</span>
+            <span onclick="setLoop()"  title="單曲循環">q</span>
+            <span onclick="setRandom()" title="隨機播放">s</span>
+            <span onclick="setAllLoop()"title="全歌曲循環">`</span>
+            <span onclick="songBook()" title="歌單">@</span>
+       
+        <hr class="hr-color"/>
+
+        <input id="progress" type="range" value="0" oninput="setTimeBar()" />
+        <input id="volValue" type="range" max="100" min="0" value="80" oninput="setVolume()" />
+        <input id="Button1" class="btnVol" type="button" value="-" onclick="changeVolume(-1)" />
+        <input id="Button2" class="btnVol" type="button" value="+" onclick="changeVolume(1)" />
+        <input id="volInfo" type="text" readonly />
+        <hr class="hr-color"/>
+        <div id="info">
+            <marquee>請按播放鈕</marquee>
+            <div>00:00 / 00:00</div>
+
+            <div></div>
+
+            <div id="book" class="songhide">
+                <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div title="music/BadDay.mp3">BadDay</div>
+                    <div title="music/如果可以.mp3">如果可以</div>
+                    <div title="music/想見你想見你想見你.mp3">想見你想見你想見你</div>
+                    <div title="music/愛上你算我賤.mp3">愛上你算我賤</div>
+                    <div title="music/聽說你離開他.mp3">聽說你離開他</div>
+                    <div title="music/飄洋過海來看你.mp3">飄洋過海來看你</div>
+                    <div title="music/你愛我像誰.mp3">你愛我像誰</div>
+                    <div title="music/星星知我心.mp3">星星知我心</div>
+                    <div title="music/我很好騙.mp3">我很好騙</div>
+                    <div title="music/Baby One More Time.mp3">Baby One More Time</div>
+                    <div title="music/你還記得嗎.mp3">你還記得嗎</div>
+                </div>
+
+                <div ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                </div>
+                <button onclick="UpdatdMusic()" id="UpsongBook">更新歌單</button>
+            </div>
+        </div>
+    </div>
+
+  
+    <audio  id="music">
+        <source type="audio/mpeg" />
+    </audio>
+
+    <script src="hw3.js"></script>
+   
+</body>
+</html>
